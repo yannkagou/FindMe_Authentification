@@ -1,3 +1,4 @@
+import 'package:findme_test/screens/welcomeScreen.dart';
 import 'package:flutter/material.dart';
 
 class NumericKeypad extends StatefulWidget {
@@ -97,6 +98,12 @@ class _NumericKeypadState extends State<NumericKeypad> {
     final value = _controller.text + text;
     setState(() {
       _controller.text = value;
+      if (_controller.text.length == 4) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const WelcomeScreen()),
+        );
+      }
     });
   }
 
