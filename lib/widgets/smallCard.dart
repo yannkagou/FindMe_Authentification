@@ -29,36 +29,34 @@ class SmallCard extends StatelessWidget {
                     3.0,
                   )),
             ]),
-        child: Expanded(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              IconButton(
-                  padding: EdgeInsets.zero,
-                  color: Theme.of(context).colorScheme.primary,
-                  iconSize: 25,
-                  icon: Icon(
-                    theIcon,
-                  ),
-                  onPressed: () {}),
-              Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: Text(
-                  text,
-                  style: GoogleFonts.overpass(
-                    textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      height: 1.5,
-                    ),
-                  ),
-                  textAlign: TextAlign.center,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+                padding: EdgeInsets.zero,
+                color: Theme.of(context).colorScheme.primary,
+                iconSize: 25,
+                icon: Icon(
+                  theIcon,
                 ),
+                onPressed: () {}),
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Text(
+                text,
+                style: GoogleFonts.overpass(
+                  textStyle: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    height: 1.5,
+                  ),
+                ),
+                textAlign: TextAlign.center,
               ),
-            ],
-          ),
+            ),
+          ],
         ));
   }
 }
