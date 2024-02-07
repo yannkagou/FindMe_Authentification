@@ -55,127 +55,129 @@ class _StartScreenState extends State<StartScreen> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CarouselSlider(
-              carouselController: carouselController,
-              options: CarouselOptions(
-                  height: 400.0,
-                  viewportFraction: 1,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      currentIndex = index;
-                    });
-                  }),
-              items: itemsList
-                  .map(
-                    (item) => Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(item['image']),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            item['text'],
-                            style: GoogleFonts.overpass(
-                              textStyle: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
-                                  height: 2),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CarouselSlider(
+                carouselController: carouselController,
+                options: CarouselOptions(
+                    height: 400.0,
+                    viewportFraction: 1,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        currentIndex = index;
+                      });
+                    }),
+                items: itemsList
+                    .map(
+                      (item) => Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(item['image']),
+                            const SizedBox(
+                              height: 20,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ]),
-                  )
-                  .toList(),
-            ),
-            DotsIndicator(
-                dotsCount: itemsList.length,
-                position: currentIndex,
-                decorator: DotsDecorator(
-                    spacing: const EdgeInsets.symmetric(horizontal: 10.0),
-                    color: const Color(0xFFCCCCCC),
-                    activeColor: Theme.of(context).colorScheme.primary,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0)),
-                    activeShape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0)),
-                    size: const Size(13, 13),
-                    activeSize: const Size(13, 13)),
-                onTap: (index) {
-                  carouselController.animateToPage(index);
-                }),
-            const SizedBox(
-              height: 40,
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 0.0, horizontal: 40.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10.0, vertical: 10.0),
-                    primary: Theme.of(context).colorScheme.primary,
-                    elevation: 0,
-                    shape: const StadiumBorder(),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()),
-                    );
-                  },
-                  child: const Text(
-                    "Je crée mon espace",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
+                            Text(
+                              item['text'],
+                              style: GoogleFonts.overpass(
+                                textStyle: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                    height: 2),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ]),
+                    )
+                    .toList(),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 0.0, horizontal: 40.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
+              DotsIndicator(
+                  dotsCount: itemsList.length,
+                  position: currentIndex,
+                  decorator: DotsDecorator(
+                      spacing: const EdgeInsets.symmetric(horizontal: 10.0),
+                      color: const Color(0xFFCCCCCC),
+                      activeColor: Theme.of(context).colorScheme.primary,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0)),
+                      activeShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0)),
+                      size: const Size(13, 13),
+                      activeSize: const Size(13, 13)),
+                  onTap: (index) {
+                    carouselController.animateToPage(index);
+                  }),
+              const SizedBox(
+                height: 40,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 0.0, horizontal: 40.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10.0, vertical: 10.0),
-                      side: BorderSide(
-                          width: 1,
-                          color: Theme.of(context).colorScheme.primary),
-                      primary: Colors.white,
+                      primary: Theme.of(context).colorScheme.primary,
                       elevation: 0,
-                      shape: const StadiumBorder()),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()),
-                    );
-                  },
-                  child: Text(
-                    "Je me connecte",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 16,
+                      shape: const StadiumBorder(),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
+                      );
+                    },
+                    child: const Text(
+                      "Je crée mon espace",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 0.0, horizontal: 40.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        side: BorderSide(
+                            width: 1,
+                            color: Theme.of(context).colorScheme.primary),
+                        primary: Colors.white,
+                        elevation: 0,
+                        shape: const StadiumBorder()),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
+                      );
+                    },
+                    child: Text(
+                      "Je me connecte",
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     ));

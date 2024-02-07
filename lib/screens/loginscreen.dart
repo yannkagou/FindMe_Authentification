@@ -29,64 +29,74 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
+          SizedBox(
+            height: 30,
+          ),
           Expanded(
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 6.0, vertical: 5.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    "Entrez votre code secret",
-                    style: GoogleFonts.overpass(
-                      textStyle: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                          color: Theme.of(context).colorScheme.secondary),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Text(
+                      "Entrez votre code secret",
+                      style: GoogleFonts.overpass(
+                        textStyle: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: Theme.of(context).colorScheme.secondary),
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    width: 200,
-                    child: PinCodeTextField(
+                    SizedBox(
+                      width: 200,
+                      child: PinCodeTextField(
+                        controller: textController,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        autoFocus: true,
+                        appContext: context,
+                        length: 4,
+                        pinTheme: PinTheme(
+                          activeColor: Colors.black26,
+                          activeFillColor: Colors.black26,
+                          inactiveColor: Colors.black26,
+                          disabledColor: Colors.black26,
+                          selectedFillColor: Colors.black26,
+                          inactiveFillColor: Colors.black26,
+                          selectedColor: Colors.black26,
+                          errorBorderColor: Colors.black26,
+                          borderWidth: 1.0,
+                        ),
+                        textStyle: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black54,
+                        ),
+                        keyboardType: TextInputType.none,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    //Appel du widget du clavier personnalisé
+                    NumericKeypad(
                       controller: textController,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      autoFocus: true,
-                      appContext: context,
-                      length: 4,
-                      pinTheme: PinTheme(
-                        activeColor: Colors.black26,
-                        activeFillColor: Colors.black26,
-                        inactiveColor: Colors.black26,
-                        disabledColor: Colors.black26,
-                        selectedFillColor: Colors.black26,
-                        inactiveFillColor: Colors.black26,
-                        selectedColor: Colors.black26,
-                        errorBorderColor: Colors.black26,
-                        borderWidth: 1.0,
-                      ),
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        color: Colors.black54,
-                      ),
-                      keyboardType: TextInputType.none,
                     ),
-                  ),
-                  //Appel du widget du clavier personnalisé
-                  NumericKeypad(
-                    controller: textController,
-                  ),
-                  Text(
-                    "Code secret oublié ?",
-                    style: GoogleFonts.overpass(
-                      textStyle: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Theme.of(context).colorScheme.secondary),
+                    const SizedBox(
+                      height: 30,
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+                    Text(
+                      "Code secret oublié ?",
+                      style: GoogleFonts.overpass(
+                        textStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Theme.of(context).colorScheme.secondary),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
           )

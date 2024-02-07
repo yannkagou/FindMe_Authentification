@@ -27,7 +27,7 @@ class _NumericKeypadState extends State<NumericKeypad> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Row(
             children: [
               _buildButton('1'),
@@ -37,7 +37,7 @@ class _NumericKeypadState extends State<NumericKeypad> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Row(
             children: [
               _buildButton('4'),
@@ -47,7 +47,7 @@ class _NumericKeypadState extends State<NumericKeypad> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Row(
             children: [
               _buildButton('7'),
