@@ -13,25 +13,25 @@ class SmallCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         alignment: Alignment.center,
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
-                  color: Color(0xE5E5E5),
+                  color: Color(0xFFE5E5E5),
                   blurRadius: 6.0,
                   spreadRadius: 2.0,
                   offset: Offset(
-                    0.0, // Move to right 0.0 horizontally
-                    2.0, // Move to bottom 2.0 Vertically
+                    0.0,
+                    4.0,
                   )),
             ]),
         child: Column(
           children: [
             IconButton(
-                color: Colors.green,
-                iconSize: 24,
+                color: const Color(0xFF32B108),
+                iconSize: 14,
                 icon: Icon(
                   theIcon,
                 ),

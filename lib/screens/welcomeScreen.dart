@@ -15,98 +15,154 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawer: mainDrawer(),
-      body: Container(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 1.0),
-              child: Image(
-                width: 100,
-                height: 27,
-                image: AssetImage("assets/logo.png"),
-              ),
+      body: SafeArea(
+        child: Container(
+          margin: const EdgeInsets.only(top: 28),
+          width: double.infinity,
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/Rectangle.png"),
+              fit: BoxFit.cover,
             ),
-            Text(
-              "Bienvenue 😊 !",
-              style: GoogleFonts.overpass(
-                textStyle: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  height: 1,
-                ),
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              "Mon adresse postale, mon plan de localisation postal en 2 mins",
-              style: GoogleFonts.overpass(
-                textStyle: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  height: 1,
-                ),
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xF3F7FE),
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15)),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Entrez votre numéro de téléphone",
-                        style: GoogleFonts.overpass(
-                          textStyle: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                            height: 1.5,
-                          ),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      ElevatedButton(
-                        child: Text(
-                          "Continuer",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.green,
-                            elevation: 0,
-                            shape: StadiumBorder()),
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Image(
+                      width: 100,
+                      height: 30,
+                      image: AssetImage("assets/logo.png"),
+                    ),
+                    Builder(
+                      builder: (context) => IconButton(
+                        color: const Color(0xFF1665AE),
+                        iconSize: 26,
+                        icon: const Icon(Icons.menu),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomeScreen()),
-                          );
+                          Scaffold.of(context).openEndDrawer();
                         },
                       ),
-                    ],
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Bienvenue 😊 !",
+                style: GoogleFonts.overpass(
+                  textStyle: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Text(
+                  "Mon adresse postale, mon plan de localisation postal en 2 mins",
+                  style: GoogleFonts.overpass(
+                    textStyle: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      height: 1.5,
+                    ),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        color: Color(0xFFF3F7FE),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15)),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color(0xFFE5E5E5),
+                              blurRadius: 6.0,
+                              spreadRadius: 2.0,
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              )),
+                        ]),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Text(
+                              "Entrez votre numéro de téléphone",
+                              style: GoogleFonts.overpass(
+                                textStyle: const TextStyle(
+                                  color: Color(0xFF1665AE),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                  height: 1.5,
+                                ),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          ElevatedButton(
+                            child: Text(
+                              "Continuer",
+                              style: GoogleFonts.overpass(
+                                textStyle: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 35.0, vertical: 15.0),
+                                primary: const Color(0xFF32B108),
+                                elevation: 0,
+                                shape: const StadiumBorder()),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomeScreen()),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

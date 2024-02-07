@@ -1,4 +1,5 @@
 import 'package:findme_test/screens/homeScreen.dart';
+import 'package:findme_test/screens/loginScreen.dart';
 import 'package:findme_test/screens/startScreen.dart';
 import 'package:findme_test/screens/welcomeScreen.dart';
 import 'package:flutter/material.dart';
@@ -17,48 +18,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Stack(
-          children: [
-            Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/Rectangle.png'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Navigator(
-              initialRoute: '/',
-              onGenerateRoute: (RouteSettings settings) {
-                WidgetBuilder builder;
-                switch (settings.name) {
-                  case '/':
-                    builder = (BuildContext context) => const SplashScreen();
-                    break;
-                  case '/start':
-                    builder = (BuildContext context) => const StartScreen();
-                    break;
-                  case '/welcome':
-                    builder = (BuildContext context) => const WelcomeScreen();
-                    break;
-                  case '/home':
-                    builder = (BuildContext context) => const HomeScreen();
-                    break;
-                  default:
-                    throw Exception('Invalid route: ${settings.name}');
-                }
-                return MaterialPageRoute(
-                  builder: builder,
-                  settings: settings,
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      routes: {
+        "/": (context) => const SplashScreen(),
+        "/home": (context) => const HomeScreen(),
+        "/start": (context) => const StartScreen(),
+        "/login": (context) => const LoginScreen(),
+        "/welcome": (context) => const WelcomeScreen(),
+      },
     );
   }
 }
@@ -78,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const HomeScreen()));
+          MaterialPageRoute(builder: (_) => const StartScreen()));
     });
   }
 
@@ -92,13 +58,22 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Opacity(
-          opacity: 0.8,
-          child: Image(
-            width: 253,
+      body: Container(
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/Rectangle.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Container(
+            width: 250,
             height: 69,
-            image: AssetImage("assets/logo.png"),
+            child: const Image(
+              image: AssetImage("assets/logo.png"),
+              fit: BoxFit.fill,
+            ),
           ),
         ),
       ),

@@ -19,11 +19,11 @@ class _NumericKeypadState extends State<NumericKeypad> {
     _controller = widget.controller;
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _controller.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +87,11 @@ class _NumericKeypadState extends State<NumericKeypad> {
         onPressed: onPressed ?? () => _input(text),
         child: Text(
           text,
-          style: TextStyle(
-              fontSize: 24, fontWeight: FontWeight.w400, color: Colors.black),
+          style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w300,
+            color: Colors.black,
+          ),
         ),
       ),
     );

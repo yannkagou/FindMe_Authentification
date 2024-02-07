@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../widgets/numeric_keypad.dart';
+import '../widgets/numericKeypad.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -20,8 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Container(
             width: double.infinity,
-            height: 170,
-            decoration: BoxDecoration(
+            height: 200,
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/dakar.png'),
                 fit: BoxFit.cover,
@@ -39,16 +40,37 @@ class _LoginScreenState extends State<LoginScreen> {
                     "Entrez votre code secret",
                     style: GoogleFonts.overpass(
                       textStyle: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        height: 1,
-                      ),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF1665AE)),
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  TextField(
-                    controller: textController,
-                    keyboardType: TextInputType.none,
+                  Container(
+                    width: 200,
+                    child: PinCodeTextField(
+                      controller: textController,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      autoFocus: true,
+                      appContext: context,
+                      length: 4,
+                      pinTheme: PinTheme(
+                        activeColor: Colors.black26,
+                        activeFillColor: Colors.black26,
+                        inactiveColor: Colors.black26,
+                        disabledColor: Colors.black26,
+                        selectedFillColor: Colors.black26,
+                        inactiveFillColor: Colors.black26,
+                        selectedColor: Colors.black26,
+                        errorBorderColor: Colors.black26,
+                        borderWidth: 1.0,
+                      ),
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.black54,
+                      ),
+                      keyboardType: TextInputType.none,
+                    ),
                   ),
                   NumericKeypad(
                     controller: textController,
@@ -57,10 +79,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     "Code secret oublié ?",
                     style: GoogleFonts.overpass(
                       textStyle: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        height: 1,
-                      ),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF1665AE)),
                     ),
                     textAlign: TextAlign.center,
                   ),
