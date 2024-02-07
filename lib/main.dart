@@ -15,15 +15,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FindMe',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
+      ).copyWith(
+        colorScheme: ThemeData().colorScheme.copyWith(
+              primary: const Color(0xFF32B108),
+              secondary: const Color(0xFF1665AE),
+            ),
       ),
       debugShowCheckedModeBanner: false,
       routes: {
         "/": (context) => const SplashScreen(),
-        "/home": (context) => const HomeScreen(),
         "/start": (context) => const StartScreen(),
         "/login": (context) => const LoginScreen(),
         "/welcome": (context) => const WelcomeScreen(),
+        "/home": (context) => const HomeScreen(),
       },
     );
   }
@@ -66,11 +71,11 @@ class _SplashScreenState extends State<SplashScreen>
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child: Container(
+        child: const Center(
+          child: SizedBox(
             width: 250,
             height: 69,
-            child: const Image(
+            child: Image(
               image: AssetImage("assets/logo.png"),
               fit: BoxFit.fill,
             ),

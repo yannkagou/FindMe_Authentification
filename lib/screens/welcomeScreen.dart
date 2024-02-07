@@ -17,7 +17,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       endDrawer: mainDrawer(),
       body: SafeArea(
         child: Container(
-          margin: const EdgeInsets.only(top: 28),
+          margin: const EdgeInsets.only(top: 10),
           width: double.infinity,
           height: double.infinity,
           decoration: const BoxDecoration(
@@ -29,19 +29,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 4.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Image(
-                      width: 100,
-                      height: 30,
+                      width: 130,
+                      height: 60,
                       image: AssetImage("assets/logo.png"),
                     ),
                     Builder(
                       builder: (context) => IconButton(
-                        color: const Color(0xFF1665AE),
-                        iconSize: 26,
+                        color: Theme.of(context).colorScheme.secondary,
+                        iconSize: 44,
                         icon: const Icon(Icons.menu),
                         onPressed: () {
                           Scaffold.of(context).openEndDrawer();
@@ -114,8 +115,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             child: Text(
                               "Entrez votre numéro de téléphone",
                               style: GoogleFonts.overpass(
-                                textStyle: const TextStyle(
-                                  color: Color(0xFF1665AE),
+                                textStyle: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700,
                                   height: 1.5,
@@ -131,6 +133,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             height: 30,
                           ),
                           ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 35.0, vertical: 15.0),
+                                primary: Theme.of(context).colorScheme.primary,
+                                elevation: 0,
+                                shape: const StadiumBorder()),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomeScreen()),
+                              );
+                            },
                             child: Text(
                               "Continuer",
                               style: GoogleFonts.overpass(
@@ -141,19 +156,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               ),
                               textAlign: TextAlign.center,
                             ),
-                            style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 35.0, vertical: 15.0),
-                                primary: const Color(0xFF32B108),
-                                elevation: 0,
-                                shape: const StadiumBorder()),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomeScreen()),
-                              );
-                            },
                           ),
                         ],
                       ),

@@ -39,14 +39,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     "Entrez votre code secret",
                     style: GoogleFonts.overpass(
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
-                          color: Color(0xFF1665AE)),
+                          color: Theme.of(context).colorScheme.secondary),
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  Container(
+                  SizedBox(
                     width: 200,
                     child: PinCodeTextField(
                       controller: textController,
@@ -78,10 +78,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     "Code secret oublié ?",
                     style: GoogleFonts.overpass(
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
-                          color: Color(0xFF1665AE)),
+                          color: Theme.of(context).colorScheme.secondary),
                     ),
                     textAlign: TextAlign.center,
                   ),

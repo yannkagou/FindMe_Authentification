@@ -5,17 +5,17 @@ class mainDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Drawer(
-        backgroundColor: const Color(0xFF32B108),
+        backgroundColor: Theme.of(context).colorScheme.primary,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            Container(
+            SizedBox(
               height: 60,
-              child: const DrawerHeader(
+              child: DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color(0xFF1665AE),
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
-                child: Text(
+                child: const Text(
                   'Reglages',
                   style: TextStyle(
                       color: Colors.white,
@@ -35,7 +35,7 @@ class mainDrawer extends StatelessWidget {
               title: Text(
                 'Compte',
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Theme.of(context).colorScheme.secondary,
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
@@ -49,7 +49,7 @@ class mainDrawer extends StatelessWidget {
               title: Text(
                 'Notifications',
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Theme.of(context).colorScheme.secondary,
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),

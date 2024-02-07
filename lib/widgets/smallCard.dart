@@ -12,8 +12,8 @@ class SmallCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
         alignment: Alignment.center,
-        margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -27,28 +27,36 @@ class SmallCard extends StatelessWidget {
                     4.0,
                   )),
             ]),
-        child: Column(
-          children: [
-            IconButton(
-                color: const Color(0xFF32B108),
-                iconSize: 14,
-                icon: Icon(
-                  theIcon,
-                ),
-                onPressed: () {}),
-            Text(
-              text,
-              style: GoogleFonts.overpass(
-                textStyle: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                  height: 1,
+        child: Expanded(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                  padding: EdgeInsets.zero,
+                  color: Theme.of(context).colorScheme.primary,
+                  iconSize: 25,
+                  icon: Icon(
+                    theIcon,
+                  ),
+                  onPressed: () {}),
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(
+                  text,
+                  style: GoogleFonts.overpass(
+                    textStyle: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      height: 1.5,
+                    ),
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
-              textAlign: TextAlign.center,
-            ),
-          ],
+            ],
+          ),
         ));
   }
 }

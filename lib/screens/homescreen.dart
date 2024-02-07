@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
         drawer: mainDrawer(),
         body: SafeArea(
           child: Container(
-            margin: const EdgeInsets.only(top: 28),
+            margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
             height: double.infinity,
             decoration: const BoxDecoration(
@@ -54,50 +54,61 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: Column(children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Builder(
                       builder: (context) => IconButton(
-                        color: const Color(0xFF1665AE),
-                        iconSize: 26,
+                        color: Theme.of(context).colorScheme.secondary,
+                        iconSize: 44,
                         icon: const Icon(Icons.menu),
                         onPressed: () {
                           Scaffold.of(context).openDrawer();
                         },
                       ),
                     ),
-                    Row(
+                    Stack(
                       children: [
                         IconButton(
-                            iconSize: 34,
+                            color: Theme.of(context).colorScheme.secondary,
+                            iconSize: 44,
                             icon: const Icon(
                               Icons.notifications_active_outlined,
                             ),
                             onPressed: () {}),
-                        ElevatedButton(
-                          child: Text(
-                            "2",
-                            style: TextStyle(color: Colors.white),
+                        Positioned(
+                          top: 0.0,
+                          right: 0.0,
+                          child: Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).colorScheme.primary,
+                                shape: BoxShape.circle,
+                              ),
+                              padding: const EdgeInsets.all(8.0),
+                              child: const Text(
+                                "2",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
                           ),
-                          style: ElevatedButton.styleFrom(
-                              primary: Colors.green,
-                              elevation: 0,
-                              shape: const StadiumBorder()),
-                          onPressed: () {},
                         ),
                       ],
                     ),
                   ],
                 ),
               ),
-              const Center(
-                child: Image(
-                  width: 144,
-                  height: 38,
-                  image: AssetImage("assets/logo.png"),
-                ),
+              const Image(
+                width: 144,
+                height: 38,
+                image: AssetImage("assets/logo.png"),
               ),
               const SizedBox(
                 height: 10,
@@ -106,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 CarouselSlider(
                   carouselController: carouselController,
                   options: CarouselOptions(
-                      height: 140.0,
+                      height: 130.0,
                       viewportFraction: 0.8,
                       enableInfiniteScroll: false,
                       onPageChanged: (index, reason) {
@@ -133,63 +144,70 @@ class _HomeScreenState extends State<HomeScreen> {
                                         2.0,
                                       )),
                                 ]),
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    IconButton(
-                                        color: const Color(0xFF32B108),
-                                        iconSize: 22,
-                                        icon: const Icon(
-                                          Icons.notifications_active_outlined,
-                                        ),
-                                        onPressed: () {}),
-                                    Text(
-                                      "Adresse postale à certifier",
-                                      style: GoogleFonts.overpass(
-                                        textStyle: const TextStyle(
-                                          color: Color(0xFFE31B23),
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w700,
-                                          height: 1,
+                            child: Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                          padding: EdgeInsets.only(top: 6.0),
+                                          alignment: Alignment.topLeft,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
+                                          iconSize: 30,
+                                          icon: const Icon(
+                                            Icons.home,
+                                          ),
+                                          onPressed: () {}),
+                                      Text(
+                                        "Adresse postale à certifier",
+                                        style: GoogleFonts.overpass(
+                                          textStyle: const TextStyle(
+                                            color: Color(0xFFE31B23),
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w700,
+                                            height: 1,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  item['rue'],
-                                  style: GoogleFonts.overpass(
-                                    textStyle: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
+                                    ],
+                                  ),
+                                  Text(
+                                    item['rue'],
+                                    style: GoogleFonts.overpass(
+                                      textStyle: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Text(
-                                  item['cp'],
-                                  style: GoogleFonts.overpass(
-                                    textStyle: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
+                                  Text(
+                                    item['cp'],
+                                    style: GoogleFonts.overpass(
+                                      textStyle: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Text(
-                                  item['ville'],
-                                  style: GoogleFonts.overpass(
-                                    textStyle: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
+                                  Text(
+                                    item['ville'],
+                                    style: GoogleFonts.overpass(
+                                      textStyle: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             )),
                       )
                       .toList(),
@@ -203,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     decorator: DotsDecorator(
                         spacing: const EdgeInsets.symmetric(horizontal: 10.0),
                         color: const Color(0xFFCCCCCC),
-                        activeColor: const Color(0xFF32B108),
+                        activeColor: Theme.of(context).colorScheme.primary,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15.0)),
                         activeShape: RoundedRectangleBorder(
@@ -218,9 +236,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     SmallCard(
                         theIcon: Icons.share, text: "Partagez \nmon addresse"),
@@ -232,14 +251,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Container(
                     decoration: BoxDecoration(
-                      color: const Color(0xFF32B108),
+                      color: Theme.of(context).colorScheme.primary,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -262,14 +281,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     )),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Container(
                     decoration: BoxDecoration(
-                      color: const Color(0xFF32B108),
+                      color: Theme.of(context).colorScheme.primary,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
