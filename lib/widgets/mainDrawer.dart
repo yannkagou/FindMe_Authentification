@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//Le widget de remplissage du drawer avec quelques dummies datas, il sera appeller aux pages principales
 class mainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

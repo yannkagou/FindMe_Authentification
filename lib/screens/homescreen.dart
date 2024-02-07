@@ -89,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: Theme.of(context).colorScheme.primary,
                                 shape: BoxShape.circle,
                               ),
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(6.0),
                               child: const Text(
                                 "2",
                                 style: TextStyle(
@@ -111,13 +111,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: AssetImage("assets/logo.png"),
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               Column(children: [
                 CarouselSlider(
                   carouselController: carouselController,
                   options: CarouselOptions(
-                      height: 130.0,
+                      height: 120.0,
                       viewportFraction: 0.8,
                       enableInfiniteScroll: false,
                       onPageChanged: (index, reason) {
@@ -128,24 +128,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   items: itemsList
                       .map(
                         (item) => Container(
-                            width: 290,
-                            height: 120,
-                            margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 5.0, vertical: 5.0),
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(20),
                                 boxShadow: const [
                                   BoxShadow(
-                                      color: Color(0xFFE5E5E5),
-                                      blurRadius: 6.0,
-                                      spreadRadius: 2.0,
+                                      color: Color(0xFFCCCCCC),
+                                      blurRadius: 0.0,
+                                      spreadRadius: 1.0,
                                       offset: Offset(
-                                        2.0,
-                                        2.0,
+                                        0.0,
+                                        3.0,
                                       )),
                                 ]),
                             child: Padding(
-                              padding: const EdgeInsets.all(6.0),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 1.0, horizontal: 6.0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -168,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         style: GoogleFonts.overpass(
                                           textStyle: const TextStyle(
                                             color: Color(0xFFE31B23),
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             fontWeight: FontWeight.w700,
                                             height: 1,
                                           ),
@@ -181,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: GoogleFonts.overpass(
                                       textStyle: const TextStyle(
                                         color: Colors.black,
-                                        fontSize: 16,
+                                        fontSize: 14,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
@@ -191,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: GoogleFonts.overpass(
                                       textStyle: const TextStyle(
                                         color: Colors.black,
-                                        fontSize: 16,
+                                        fontSize: 14,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
@@ -201,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: GoogleFonts.overpass(
                                       textStyle: const TextStyle(
                                         color: Colors.black,
-                                        fontSize: 16,
+                                        fontSize: 14,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
@@ -213,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       .toList(),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 DotsIndicator(
                     dotsCount: itemsList.length,
@@ -233,7 +233,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     }),
               ]),
               const SizedBox(
-                height: 20,
+                height: 30,
               ),
               Padding(
                 padding:
@@ -249,6 +249,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         theIcon: Icons.share, text: "Recommander \nFINDME"),
                   ],
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -279,6 +282,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onPressed: () {}),
                           ]),
                     )),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),

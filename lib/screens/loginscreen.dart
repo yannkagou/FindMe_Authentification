@@ -72,6 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       keyboardType: TextInputType.none,
                     ),
                   ),
+                  //Appel du widget du clavier personnalisé
                   NumericKeypad(
                     controller: textController,
                   ),

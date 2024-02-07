@@ -18,11 +18,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ).copyWith(
         colorScheme: ThemeData().colorScheme.copyWith(
-              primary: const Color(0xFF32B108),
-              secondary: const Color(0xFF1665AE),
+              primary: const Color(0xFF32B108), //Couleur principale
+              secondary: const Color(0xFF1665AE), //Couleur secondaire
             ),
       ),
       debugShowCheckedModeBanner: false,
+      // Les differentes routes de l'application
       routes: {
         "/": (context) => const SplashScreen(),
         "/start": (context) => const StartScreen(),
@@ -33,6 +34,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// Le widget pour le splash screen, il durera 5 secondes
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

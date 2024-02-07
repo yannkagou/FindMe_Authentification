@@ -1,6 +1,8 @@
 import 'package:findme_test/screens/welcomeScreen.dart';
 import 'package:flutter/material.dart';
 
+//Ce widget permettra d'avoir un clavier numerique personnalisé pour la saisie du code Pin. Il prendra donc en paramètre un TextEditingController
+
 class NumericKeypad extends StatefulWidget {
   final TextEditingController controller;
 
@@ -19,12 +21,7 @@ class _NumericKeypadState extends State<NumericKeypad> {
     _controller = widget.controller;
   }
 
-  // @override
-  // void dispose() {
-  //   _controller.dispose();
-  //   super.dispose();
-  // }
-
+  //Montage du clavier personnalisé
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -80,7 +77,7 @@ class _NumericKeypadState extends State<NumericKeypad> {
     );
   }
 
-  // Individual keys
+  // Montage de chacun des bouttons avec le chiffre et la fonction en de saisie en paramètre
   Widget _buildButton(String text, {VoidCallback? onPressed}) {
     return Expanded(
       child: TextButton(
@@ -97,6 +94,7 @@ class _NumericKeypadState extends State<NumericKeypad> {
     );
   }
 
+  // La fonction de remplissage des champs de texte pour passer à la page suivante
   void _input(String text) {
     final value = _controller.text + text;
     setState(() {
@@ -110,6 +108,7 @@ class _NumericKeypadState extends State<NumericKeypad> {
     });
   }
 
+  // La fonction de suppression de champs de texte
   void _backspace() {
     final value = _controller.text;
     if (value.isNotEmpty) {

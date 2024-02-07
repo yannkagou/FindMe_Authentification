@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//Le component pour la creation des mini boites du HomePage, il prend en paramètre une icone et du texte
+
 class SmallCard extends StatelessWidget {
   final IconData theIcon;
 
@@ -12,19 +14,19 @@ class SmallCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 2.0),
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
             boxShadow: const [
               BoxShadow(
-                  color: Color(0xFFE5E5E5),
-                  blurRadius: 6.0,
-                  spreadRadius: 2.0,
+                  color: Color(0xFFCCCCCC),
+                  blurRadius: 0.0,
+                  spreadRadius: 1.0,
                   offset: Offset(
                     0.0,
-                    4.0,
+                    3.0,
                   )),
             ]),
         child: Expanded(
